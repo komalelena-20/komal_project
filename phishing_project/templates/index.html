@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Phishing Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔐 AI Powered Phishing URL Detector</h1>
+    <p>Enter a URL to check if it is Safe or Phishing</p>
+
+    <form method="POST">
+        <input type="text" name="url" placeholder="Enter URL here..." required>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if prediction %}
+    <div class="result {{ prediction }}">
+        <h2>Result: {{ prediction }}</h2>
+        <p>Confidence: {{ confidence }}%</p>
+
+        <div class="risk-bar">
+            <div class="risk-fill" style="width: {{ risk_score }}%"></div>
+        </div>
+        <p>Risk Score: {{ risk_score }}%</p>
+
+        <h3>Extracted Features:</h3>
+        
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Steganography - Decode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        input[type="file"] {
+            width: 100%;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+        button:hover {
+            background-color: #1e7e34;
+        }
+        textarea {
+            width: 100%;
+            margin-top: 20px;
+            height: 100px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔍 Decode Message from Image</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="image">Upload Image (with hidden message):</label>
+            <input type="file" name="image" required><br><br>
+
+            <button type="submit">🔓 Decode</button>
+        </form>
+
+        {% if secret %}
+            <h3>📝 Decoded Message:</h3>
+            <textarea readonly>{{ secret }}</textarea>
+        {% endif %}
+
+        <a href="/">⬅️ Back to Encoder</a>
+    </div>
+</body>
+</html>
